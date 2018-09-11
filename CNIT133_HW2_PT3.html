@@ -1,0 +1,144 @@
+<!DOCTYPE HTML>
+<html lang = en>
+
+<head>
+   <meta charset="utf-8">
+        <title>NEM - CNIT 133 - PART 3</title>
+        <meta name="description" content="CCSF CNIT 133 HW2 - PART 1">
+        <link rel="stylesheet" href="CNIT133_HW1style.css">
+    <!--Link to jQuery library-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!--Function to calculate number of positive, negative and zero values entered by user-->
+    <script>
+        function findResults(){
+        
+        // declare variables
+        
+        var integer1, int1, integer2, int2, integer3, int3, integer4, int4, integer5, int5;
+        var totalPositive = 0, totalNegative = 0, totalZero = 0;
+        
+        // test input and use counters to keep track of positive, negative, and 0 totals
+        
+        integer1 = document.forms["Part3Form"].elements["integer1"].value;
+        int1 = parseInt(integer1);
+        
+        if (int1 > 0)
+            totalPositive++;
+        else if (int1 == 0)
+            totalZero++;
+        else if (int1 < 0)
+            totalNegative++;
+            
+        integer2 = document.forms["Part3Form"].elements["integer2"].value;
+        int2 = parseInt(integer2);
+        
+        if (int2 > 0)
+            totalPositive++;
+        else if (int2 == 0)
+            totalZero++;
+        else if (int2 < 0)
+            totalNegative++; 
+            
+        integer3 = document.forms["Part3Form"].elements["integer3"].value;
+        int3 = parseInt(integer3);
+        
+        if (int3 > 0)
+            totalPositive++;
+        else if (int3 == 0)
+            totalZero++;
+        else if (int3 < 0)
+            totalNegative++;
+            
+        integer4 = document.forms["Part3Form"].elements["integer4"].value;
+        int4 = parseInt(integer4);
+        
+        if (int4 > 0)
+            totalPositive++;
+        else if (int4 == 0)
+            totalZero++;
+        else if (int4 < 0)
+            totalNegative++;
+            
+        integer5 = document.forms["Part3Form"].elements["integer5"].value;
+        int5 = parseInt(integer5);
+        
+        if (int5 > 0)
+            totalPositive++;
+        else if (int5 == 0)
+            totalZero++;
+        else if (int5 < 0)
+            totalNegative++;
+        
+        // send all results to form textbox named "results"
+        
+        document.forms["Part3Form"].elements["results"].value = ("You entered " + totalPositive + " positive, " + totalNegative + " negative, and " + totalZero + " zero values." );
+        }
+    </script>
+    
+    <!--jQuery function to fade textarea "results" box when "click to fade" button clicked-->
+    <script>
+        $(document).ready(function(){
+            $("#fadebutton").click(function(){
+            $("#results").fadeTo("slow", 0.3);
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <div id = "header">
+        <a href = "CNIT133_HW1.html">
+        <img src = "CNIT133Header1.png" width="900" height="160" alt="Nicole Elise Martin - CNIT 133">
+        </a>
+        <header>CNIT 133: HW2 - Basic Operations</header>
+    
+        <div id = "navigation">
+            <ul>
+            <li><a href="CNIT133_HW2_PT1.html">Part 1</a></li>
+            <li><a href="CNIT133_HW2_PT2.html">Part 2</a></li>
+            <li><a href="CNIT133_HW2_PT3.html">Part 3</a></li>
+            <li><a href="CNIT133_HW2_PT4.html">Part 4</a></li>
+            <li><a href="CNIT133_HW2_EC.html">Extra Credit</a></li>
+        </ul>
+        </div>
+    </div>
+    
+    <div id = "main_content">
+        <div class = "contentbox">
+            <p>PART 3: <br>
+            Create a webpage that contains a script that inputs 5 numbers and determines and displays the count of the negative numbers, the number of positive numbers, and the number of zeros. For input, use form text boxes. Your results should be displayed using a form textarea or a div element. Define a 'Click to Fade Results' button on the form. Use jQuery to define a ready handler that defines a click event handler for the button, such that clicking the button fades the results in the textarea.
+            </p>
+            
+            <form name= "Part3Form">
+                
+        <!-- Collect five integer values from user -->
+                
+            <p>
+            Enter five integers into the input boxes below: <br>
+            <input name= "integer1" type= "text" size= "5">
+            <input name= "integer2" type= "text" size= "5">
+            <input name= "integer3" type= "text" size= "5"> 
+            <input name= "integer4" type= "text" size= "5">
+            <input name= "integer5" type= "text" size= "5"> 
+                <br>
+            <input name= "submit" type = "button" value = "Calculate" onclick="findResults();"><br>
+            </p>
+                
+        <!-- Form textarea to display function results -->
+                
+            <p>
+            <textarea name="results" id="results" rows="4" cols="40" readonly>
+            </textarea>
+                <br>
+            <input name = "button" type = "button" id= "fadebutton" value = "Click to Fade Results">
+            </p>
+            </form>
+         
+             
+        </div> 
+        <footer>
+        <p>&copy;Nicole Elise Martin 2018</p>
+        </footer>
+    </div>
+</body>
+</html>

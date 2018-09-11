@@ -1,0 +1,62 @@
+<!DOCTYPE HTML>
+<html lang = en>
+
+<head>
+   <meta charset="utf-8">
+        <title>NEM - CNIT 133 - PART 4</title>
+        <meta name="description" content="CCSF CNIT 133 HW2 - PART 4">
+        <link rel="stylesheet" href="CNIT133_HW1style.css">
+</head>
+
+<body>
+    <div id = "header">
+        <a href = "CNIT133_HW1.html">
+        <img src = "CNIT133Header1.png" width="900" height="160" alt="Nicole Elise Martin - CNIT 133">
+        </a>
+        <header>CNIT 133: HW2 - Basic Operations</header>
+    
+        <div id = "navigation">
+            <ul>
+            <li><a href="CNIT133_HW2_PT1.html">Part 1</a></li>
+            <li><a href="CNIT133_HW2_PT2.html">Part 2</a></li>
+            <li><a href="CNIT133_HW2_PT3.html">Part 3</a></li>
+            <li><a href="CNIT133_HW2_PT4.html">Part 4</a></li>
+            <li><a href="CNIT133_HW2_EC.html">Extra Credit</a></li>
+        </ul>
+        </div>
+    </div>
+    
+    <div id = "main_content">
+        <div class = "contentbox">
+            <p>PART 4: <br>
+            Create a webpage that contains a script that calculates the squares and cubes of the numbers 1 to 6 and outputs text that displays (using document.write statements) the resulting values in a table format.
+            </p>
+            <!--Javascript to create table using document.write statements
+            Squares and Cubes will be calculated by Math.pow built-in function-->
+            <p>
+            <script>
+            var value1 = 1,
+                value2 = 2,
+                value3 = 3,
+                value4 = 4,
+                value5 = 5,
+                value6 = 6;
+            document.write("<table style='position: relative; top: 0px; z-index: 10; text-align: left;'>");
+            document.write("<tr><th>Number </th><th>Squared </th><th>Cubed </th></tr>");
+            document.write("<tr><td>" + value1 + "</td><td>" + Math.pow(value1,2) + "</td><td>" + Math.pow(value1,3) + "</td></tr>");
+            document.write("<tr><td>" + value2 + "</td><td>" + Math.pow(value2,2) + "</td><td>" + Math.pow(value2,3) + "</td></tr>");
+            document.write("<tr><td>" + value3 + "</td><td>" + Math.pow(value3,2) + "</td><td>" + Math.pow(value3,3) + "</td></tr>");
+            document.write("<tr><td>" + value4 + "</td><td>" + Math.pow(value4,2) + "</td><td>" + Math.pow(value4,3) + "</td></tr>");
+            document.write("<tr><td>" + value5 + "</td><td>" + Math.pow(value5,2) + "</td><td>" + Math.pow(value5,3) + "</td></tr>");
+            document.write("<tr><td>" + value6 + "</td><td>" + Math.pow(value6,2) + "</td><td>" + Math.pow(value6,3) + "</td></tr>");
+            document.write("</table>");
+            </script>
+            </p>
+             
+        </div> 
+        <footer>
+        <p>&copy;Nicole Elise Martin 2018</p>
+        </footer>
+    </div>
+</body>
+</html>

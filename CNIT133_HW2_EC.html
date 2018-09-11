@@ -1,0 +1,119 @@
+<!DOCTYPE HTML>
+<html lang = en>
+
+<head>
+   <meta charset="utf-8">
+        <title>NEM - CNIT 133 - PART 4</title>
+        <meta name="description" content="CCSF CNIT 133 HW2 - Extra Credit">
+        <link rel="stylesheet" href="CNIT133_HW1style.css">
+<!-- Link to JQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>    
+<script> 
+// JQuery script to hide/show page instructions.
+$(document).ready(function(){
+    $("#top_panel").click(function(){
+        $("#bottom_panel").slideToggle("slow");
+    });
+});
+</script>
+<script>
+    // function to calculate currency exchange rates for table
+    function exchangeCurrency(){
+        var usd, usdFloat, pound, canadian, euro, yen, peso;
+    // collect user input from form and convert from string to float
+        usd = document.forms["CurrencyExchange"].elements["USD"].value;
+        usdFloat = parseFloat(usd);
+    // calculate and return British Pound amt
+        pound = (usdFloat * 0.77521).toFixed(2);
+        document.forms["CurrencyExchange"].elements["pound"].value = pound;
+    // calculate and return Canadian Dollar amt
+        canadian = (usdFloat * 1.34461).toFixed(2);
+        document.forms["CurrencyExchange"].elements["canadian"].value = canadian;
+    // calculate and return Euro amt
+        euro = (usdFloat * 0.88754).toFixed(2);
+        document.forms["CurrencyExchange"].elements["euro"].value = euro;
+    // calculate and return Yen amt
+        yen = (usdFloat * 109.350).toFixed(2);
+        document.forms["CurrencyExchange"].elements["yen"].value = yen;
+    // calculate and return peso amt
+        peso = (usdFloat * 18.2806).toFixed(2);
+        document.forms["CurrencyExchange"].elements["peso"].value = peso;
+    }
+</script>
+    
+</head>
+
+<body>
+    <div id = "header">
+        <a href = "CNIT133_HW1.html">
+        <img src = "CNIT133Header1.png" width="900" height="160" alt="Nicole Elise Martin - CNIT 133">
+        </a>
+        <header>CNIT 133: HW2 - Basic Operations</header>
+    
+        <div id = "navigation">
+            <ul>
+            <li><a href="CNIT133_HW2_PT1.html">Part 1</a></li>
+            <li><a href="CNIT133_HW2_PT2.html">Part 2</a></li>
+            <li><a href="CNIT133_HW2_PT3.html">Part 3</a></li>
+            <li><a href="CNIT133_HW2_PT4.html">Part 4</a></li>
+            <li><a href="CNIT133_HW2_EC.html">Extra Credit</a></li>
+        </ul>
+        </div>
+    </div>
+    
+    <div id = "main_content">
+        <div class = "contentbox">
+           
+                <div id="top_panel">
+                <p>
+                Click to view/hide instructions.
+                </p>
+                </div>
+            
+                <div id="bottom_panel">
+                <p>
+                    Enter a USD dollar amount in the table below to see the corresponding foreign exchange values as of June 6, 2017.
+                </p>
+                </div>
+        
+            <form name = "CurrencyExchange">
+            <table id="ConversionTable">
+            <tr><th colspan="2">Conversion Table</th></tr>
+            <tr>
+                <td>Input USD &#36; Amount</td>
+                <td><input name= "USD" type ="text" size = "10" value= "0.00"></td>
+            </tr>
+            <tr>
+                <td>British Pound</td>
+                <td><input name= "pound" type="text" size="10" readonly></td>
+            </tr>
+            <tr>
+                <td>Canadian Dollar</td>
+                <td><input name= "canadian" type="text" size="10" readonly></td>
+            </tr>
+            <tr>
+                <td>Euro</td>
+                <td><input name= "euro" type="text" size="10" readonly></td>
+            </tr>
+            <tr>
+                <td>Japanese Yen</td>
+                <td><input name= "yen" type="text" size="10" readonly></td>
+            </tr>
+            <tr>
+                <td>Mexican Peso</td>
+                <td><input name= "peso" type="text" size="10" readonly></td>
+            </tr>
+            <tr>
+            <td></td>
+            <td><input name= "submit" type = "button" value = "Enter" onclick="exchangeCurrency();"></td>
+            </tr>
+            </table>
+            </form>
+             
+        </div> 
+        <footer>
+        <p>&copy;Nicole Elise Martin 2018</p>
+        </footer>
+    </div>
+</body>
+</html>

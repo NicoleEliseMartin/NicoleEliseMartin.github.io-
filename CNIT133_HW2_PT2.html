@@ -1,0 +1,153 @@
+<!DOCTYPE HTML>
+<html lang = en>
+<head>
+   <meta charset="utf-8">
+        <title>NEM - CNIT 133 - PART 2</title>
+        <meta name="description" content="CCSF CNIT 133 HW2 - PART 1">
+        <link rel="stylesheet" href="CNIT133_HW1style.css">
+    <script>
+    /*Functions to calculate integer data*/
+        function findSum(){
+            
+            var integer1, integer2, integer3, int1, int2, int3, sum;
+            integer1 = document.forms["Part2Form"].elements["integer1"].value;
+            integer2 = document.forms["Part2Form"].elements["integer2"].value;
+            integer3 = document.forms["Part2Form"].elements["integer3"].value;
+            
+            int1 = parseInt(integer1);
+            int2 = parseInt(integer2);
+            int3 = parseInt(integer3);
+            
+            sum = int1 + int2 + int3;
+            document.forms["Part2Form"].elements["sum"].value = sum;
+        }
+        
+        function findAverage(){
+            
+            var integer1, integer2, integer3, int1, int2, int3, average;
+            integer1 = document.forms["Part2Form"].elements["integer1"].value;
+            integer2 = document.forms["Part2Form"].elements["integer2"].value;
+            integer3 = document.forms["Part2Form"].elements["integer3"].value;
+            
+            int1 = parseInt(integer1);
+            int2 = parseInt(integer2);
+            int3 = parseInt(integer3);
+            
+            average = (int1 + int2 + int3) / 3;
+            document.forms["Part2Form"].elements["average"].value = average;
+            
+        }
+       
+        function findProduct() {
+            
+            var integer1, integer2, integer3, int1, int2, int3, product;
+            integer1 = document.forms["Part2Form"].elements["integer1"].value;
+            integer2 = document.forms["Part2Form"].elements["integer2"].value;
+            integer3 = document.forms["Part2Form"].elements["integer3"].value;
+            
+            int1 = parseInt(integer1);
+            int2 = parseInt(integer2);
+            int3 = parseInt(integer3);
+            
+            product = (int1 * int2 * int3);
+            document.forms["Part2Form"].elements["product"].value = product;
+        }
+        
+        function findSmallest() {
+            
+            var integer1, integer2, integer3, int1, int2, int3, smallest;
+            integer1 = document.forms["Part2Form"].elements["integer1"].value;
+            integer2 = document.forms["Part2Form"].elements["integer2"].value;
+            integer3 = document.forms["Part2Form"].elements["integer3"].value;
+            
+            int1 = parseInt(integer1);
+            int2 = parseInt(integer2);
+            int3 = parseInt(integer3);
+            
+            smallest = Math.min(int1, int2, int3);
+            document.forms["Part2Form"].elements["smallest"].value = smallest; 
+        }
+        function findLargest() {
+            
+            var integer1, integer2, integer3, int1, int2, int3, largest;
+            integer1 = document.forms["Part2Form"].elements["integer1"].value;
+            integer2 = document.forms["Part2Form"].elements["integer2"].value;
+            integer3 = document.forms["Part2Form"].elements["integer3"].value;
+            
+            int1 = parseInt(integer1);
+            int2 = parseInt(integer2);
+            int3 = parseInt(integer3);
+            
+            largest = Math.max(int1, int2, int3);
+            document.forms["Part2Form"].elements["largest"].value = largest; 
+        }
+    </script>  
+</head>
+<body>
+    <div id = "header">
+        <a href = "CNIT133_HW1.html">
+        <img src = "CNIT133Header1.png" width="900" height="160" alt="Nicole Elise Martin - CNIT 133">
+        </a>
+        <header>CNIT 133: HW2 - Basic Operations</header>
+    
+        <div id = "navigation">
+            <ul>
+            <li><a href="CNIT133_HW2_PT1.html">Part 1</a></li>
+            <li><a href="CNIT133_HW2_PT2.html">Part 2</a></li>
+            <li><a href="CNIT133_HW2_PT3.html">Part 3</a></li>
+            <li><a href="CNIT133_HW2_PT4.html">Part 4</a></li>
+            <li><a href="CNIT133_HW2_EC.html">Extra Credit</a></li>
+        </ul>
+        </div>
+    </div>
+    
+    <div id = "main_content">
+        <div class = "contentbox">
+            <p>PART 2: <br>
+            Create a webpage that contains a script that inputs three integers via form text boxes and displays the sum, average, and product of the three integers, and the smallest and largest of the three integers. Your results should be displayed using alerts or a form textarea or a div element.
+            </p>
+            
+            <form name= "Part2Form">
+        <!-- Collect three integer values from user -->
+            <p>
+            Enter three integers into the input boxes below: <br>
+            <input name= "integer1" type= "text" size= "5">
+            <input name= "integer2" type= "text" size= "5">
+            <input name= "integer3" type= "text" size= "5"> <br>
+            <input name= "submit" type = "button" value = "Calculate" onclick="findSum(); findAverage(); findProduct(); findSmallest(); findLargest();"><br>
+            </p>
+        <!-- Form textboxes/table to display function results -->
+            <table id="Pt2Results">
+            <tr><th colspan="2">Input Data Results</th></tr>
+            <tr>
+                <td>Sum</td>
+                <td><input name= "sum" type="text" size="5" readonly></td>
+            </tr>
+            <tr>
+                <td>Average</td>
+                <td><input name= "average" type="text" size="5" readonly></td>
+            </tr>
+            <tr>
+                <td>Product</td>
+                <td><input name= "product" type="text" size="5" readonly></td>
+            </tr>
+            <tr>
+                <td>Smallest Integer</td>
+                <td><input name= "smallest" type="text" size="5" readonly></td>
+            </tr>
+            <tr>
+                <td>Largest Integer</td>
+                <td><input name= "largest" type="text" size="5" readonly></td>
+            </tr>
+            </table>
+            
+            </form>
+         
+             
+        </div> 
+        <footer>
+        <p>&copy;Nicole Elise Martin 2018</p>
+        </footer>
+    </div>
+</body>
+</html>
