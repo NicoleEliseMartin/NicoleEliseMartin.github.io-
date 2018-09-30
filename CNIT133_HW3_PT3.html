@@ -1,0 +1,85 @@
+<!DOCTYPE HTML>
+<html lang = en>
+<head>
+   <meta charset="utf-8">
+        <title>NEM - CNIT 133</title>
+        <meta name="description" content="CCSF CNIT 133 HW3: Functions">
+        <link rel="stylesheet" href="CNIT133_HW3style.css">
+
+    <script>
+    function findCelsius(){
+        
+        var degreesFahrenheit, 
+            degreesCelsius;
+        
+        degreesFahrenheit = parseFloat(document.forms["tempConversion"].elements["Fahrenheit"].value);
+        degreesCelsius = 5/9 * (degreesFahrenheit - 32);
+        document.forms["tempConversion"].elements["Celsius"].value = degreesCelsius.toFixed(1);
+        }
+        
+    function findFahrenheit(){
+        var degreesFahrenheit, 
+            degreesCelsius;
+        
+        degreesCelsius = parseFloat(document.forms["tempConversion"].elements["Celsius"].value);
+        degreesFahrenheit = ((9/5 * degreesCelsius) + 32);
+        document.forms["tempConversion"].elements["Fahrenheit"].value = degreesFahrenheit.toFixed(1);
+    }
+    
+    </script>
+</head>
+<body>
+    <div id = "header">
+        <a href = "CNIT133_HW1.html">
+        <figure>
+        <img src = "CNIT133Header2.png" width="900" height="160" alt="Nicole Elise Martin - CNIT 133">
+        </figure>
+        </a>
+        <h1>CNIT 133: HW3 - PART 3</h1>
+        </div>
+        
+    <div id = "navigation">
+        <ul>
+        <li><a href="CNIT133_HW3_PT1.html">Part  1</a></li>
+        <li><a href="CNIT133_HW3_PT2.html">Part  2</a></li>
+        <li><a class = "activeTab" href="CNIT133_HW3_PT3.html">Part  3</a></li>
+        <li><a href="CNIT133_HW3_PT4.html">Part  4</a></li>
+        </ul>
+        </div>
+ 
+    <div id = "main_content">
+        <div class = "contentbox">
+        <p>Please enter value below for temperature conversion:</p>
+            
+        <form id = "tempConversion">
+        
+        <table id = "tempConversionTable">
+        <tr>
+        <th>&#176;Fahrenheit</th>
+        <th></th>
+        <th>&#176;Celsius</th>   
+        </tr>
+        
+        <tr>
+        <td><input name = "Fahrenheit" type = "number" size = "5"></td>
+        <td> = </td>
+        <td><input name = "Celsius" type = "number" size = "5"></td>
+        </tr>    
+            
+        <tr>
+        <td><input name= "Submit" type = "button" value = "Convert to &#176;C" onclick="findCelsius();"></td>
+        <td></td>
+        <td><input name = "Submit" type = "button" value = "Convert to &#176;F" onclick="findFahrenheit();"></td>
+        </tr>
+        
+        </table>    
+        </form>
+            
+        </div> 
+        
+        <footer>
+        <p>&copy;Nicole Elise Martin 2018</p>
+        </footer>
+    </div>
+</body>
+</html>

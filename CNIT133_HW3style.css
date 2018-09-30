@@ -1,0 +1,244 @@
+/*
+Nicole Martin
+9/18/18
+CNIT 133 HW 3
+Stylesheet
+*/
+
+body {
+    height: 1500px;
+    background-image: url("stardust.png");
+    width: 1250px;
+}
+
+#header {
+    width: 1000px;
+    height: 202px;
+    background-color: #cfcfcf;
+    position: relative;
+    z-index: 10;
+    float: right;
+    left: -75px;
+    border: 1px solid rgba(0, 39, 86);
+    /*border-radius: 0px 0px 20px 20px;*/
+    box-shadow: 0px 3px 7px rgba(0, 0, 0, 0.5);
+
+}
+
+#header figure {
+    width: 900px;
+    margin: 0px auto;
+    border: inherit;
+    /*border-radius: 20px 20px 0px 0px;*/
+}
+
+h1 {
+    display: block;
+    margin: 0px auto;
+    padding: 5px 0px;
+    width: 1000px;
+    height: 28px;
+    font-size: 22px;
+    font-family: "Cambria", serif;
+    background-color: #50357f;
+    color: #000;
+    border-top: 1px solid #000;
+    border-bottom: 1px solid #000;
+    /*border-radius: 0px 0px 20px 20px;*/
+    text-shadow: 0px 0px 3px #fff;
+    letter-spacing: .1em;
+    text-align: center;
+    font-weight: bolder;
+}
+
+h2 {
+    background-color: rgba(209, 179, 92, 0.8);
+    font-weight: 550;
+    font-family: "Cambria", serif;
+    font-size: 20px;
+    color: #000;
+    padding: 7px 15px;
+    text-align: left;
+    font-style: italic;
+    
+}
+
+#navigation {
+    width: 125px;
+    float: left;
+    margin: 0px;
+}
+
+#navigation ul {
+    display: block;
+    margin-left: 0px;
+    position: absolute;
+    left: 0px;
+}
+
+#navigation ul li {
+    text-decoration: none;
+    display: block;
+    padding: 5px;
+    text-align: center;
+    font-size: 18px;
+    font-family: "Cambria", serif;
+    letter-spacing: .15em;
+    border-radius: 3px;
+    border: 1px solid #000;
+    margin: 10px 5px;
+    width: 100px;
+    height: 20px;
+    background-color: rgba(255, 255, 255, 0.6);
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+
+}
+
+#navigation ul li:hover {
+    background-color: rgba(209, 179, 92, 0.8);
+}
+
+#navigation a {
+    text-decoration: none;
+    color: #0801a5;
+    text-shadow: 1px 1px 1px #000;
+}
+
+#navigation a:hover {
+    color: #000;
+}
+
+/*.activeTab {
+    background-color: rgba(209, 179, 92, 0.8);
+}*/
+
+#main_content {
+    float: right;
+    width: 1000px;
+    margin: 0px;
+    background-color: rgba(1, 85, 165, 0.3);
+    /*border: 1px solid #000;*/
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.5);
+    position: relative;
+    left: -75px;
+}
+
+.contentbox {
+    background-color: rgba(255, 255, 255, 0.4);
+    height: 1200px;
+    width: 925px;
+    margin: 0px auto;
+    border: 0px solid rgba(236, 229, 249, 0.4); 
+    /*border-radius: 10px;*/
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.5);
+    position: relative;
+    top: -15px;
+}
+
+#main_content p {
+    padding: 15px 40px;
+    font-family: "Cambria", serif;
+    font-size: 18px;
+    color: #000;
+    line-height: 2;
+    text-align: justify;
+}
+
+#top_panel, #bottom_panel {
+    margin: 0px auto;
+    border: 1px solid #000;
+    width: 750px;
+}
+
+#top_panel p, #bottom_panel p {
+    color: #000;
+    margin: 1px 7px;
+    padding: 5px;
+}
+
+#top_panel {
+    background-color: rgba(209, 179, 92, 0.8);
+    font-weight: 600;
+    margin-top: 15px;
+}
+
+#bottom_panel {
+    display: none;
+    background-color: rgba(209, 179, 92, 0.75);
+}
+
+table {
+    margin: 10px auto;
+    width: 750px;
+    color: #000;
+    background-color: rgba(184, 224, 213, 0.55);
+    border: 0.5px solid #000;
+    border-collapse: collapse;
+    text-align: left;
+    font-size: 18px;
+}
+
+th, td {
+    border-top: 0.1px solid #000;
+    border-bottom: 0.1px solid #000;
+    padding: 7px;
+    width: 375px;
+}
+
+table th {
+    color: #fff;
+    background-color: rgba(80, 53, 127, 0.8);
+    text-shadow: 2px 2px 2px #000;
+    font-family: "Lucida Calligraphy", cursive;
+    letter-spacing: .15em;
+    font-size: 16px;
+}
+
+.table_total {
+    color: #0801a5;
+    text-shadow: 0.5px 0.5px 1px #000;
+}
+
+.table_buttons { 
+    background-color: rgba(80, 53, 127, 0.6);
+    height: 5px;
+}
+
+#tempConversionTable {
+    width: 200px;
+    margin: 10px auto;
+    text-align: center;
+}
+
+#SalesTable th, td {
+    width: 25%;
+}
+
+input {
+    text-align: right;
+    font-size: 14px;
+    font-family: "Cambria", serif;
+}
+
+.tooltip {
+	display:none;
+	position:absolute;
+	border:1px solid #333;
+	background-color:#fff;
+	padding:5px;
+	color:#000;
+	font-family: "Cambria", serif;
+    font-size: 12px;
+}
+
+#Must_Retake {
+    color: #ba6f00;
+    font-size: 20px;
+    font-family: cursive;
+}
+
+footer p {
+    text-align: center;
+    padding: 25px 0px;
+}
+    

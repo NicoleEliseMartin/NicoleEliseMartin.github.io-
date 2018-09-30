@@ -1,0 +1,192 @@
+<!DOCTYPE HTML>
+<html lang = en>
+<head>
+        <meta charset="utf-8">
+        <title>NEM - CNIT 133</title>
+        <meta name="description" content="CCSF CNIT 133 HW3: Functions">
+        <link rel="stylesheet" href="CNIT133_HW3style.css">
+    
+        <!-- JQuery library link and tooltip function for hover text-->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        
+        <script>
+            $(document).ready(function() {
+                // Tooltip only Text
+                $('.masterTooltip').hover(function(){
+            // Hover over code
+            var title = $(this).attr('title');
+            $(this).data('tipText', title).removeAttr('title');
+            $('<p class="tooltip"></p>')
+            .text(title)
+            .appendTo('body')
+            .fadeIn('slow');
+                }, function() {
+            // Hover out code
+            $(this).attr('title', $(this).data('tipText'));
+            $('.tooltip').remove();
+            }).mousemove(function(e) {
+            var mousex = e.pageX + 20; //Get X coordinates
+            var mousey = e.pageY + 10; //Get Y coordinates
+            $('.tooltip')
+            .css({ top: mousey, left: mousex })
+                });
+            });
+        </script>        
+        
+        <!-- Function to calculate sales totals from form input fields -->
+        <script>
+        function findSalesTotal(){
+            
+            const ITEMCOST_1 = 239.99,
+                  ITEMCOST_2 = 129.75,
+                  ITEMCOST_3 = 99.95,
+                  ITEMCOST_4 = 350.89,
+                  BASE_PAY = 200,
+                  COMMISSION_RATE = 0.09;
+            
+            var qtySold1,
+                qtySold2,
+                qtySold3,
+                qtySold4,
+                totalValue1,
+                totalValue2,
+                totalValue3,
+                totalValue4,
+                totalValueSold,
+                totalEarnings;
+            
+            // Store value of qty sold in function variables
+            
+            qtySold1 = parseFloat(document.forms["Sales"].elements["qty1"].value);
+            qtySold2 = parseFloat(document.forms["Sales"].elements["qty2"].value);
+            qtySold3 = parseFloat(document.forms["Sales"].elements["qty3"].value);
+            qtySold4 = parseFloat(document.forms["Sales"].elements["qty4"].value);
+            
+            if(qtySold1 >=0 && qtySold2 >=0 && qtySold3 >=0 && qtySold4 >=0){
+            
+                // Calculate total value of each sku based on qty sold
+            
+                totalValue1 = (qtySold1 * ITEMCOST_1);
+                totalValue2 = (qtySold2 * ITEMCOST_2);
+                totalValue3 = (qtySold3 * ITEMCOST_3);
+                totalValue4 = (qtySold4 * ITEMCOST_4);
+            
+                // Calculate total value of merch sold and total employee earnings
+            
+                totalValueSold = (totalValue1 + totalValue2 + totalValue3 + totalValue4);
+                totalEarnings = (totalValueSold * COMMISSION_RATE) + BASE_PAY;
+            
+                // Return results to form
+            
+                document.forms["Sales"].elements["total1"].value = totalValue1.toFixed(2);
+                document.forms["Sales"].elements["total2"].value = totalValue2.toFixed(2);
+                document.forms["Sales"].elements["total3"].value = totalValue3.toFixed(2);
+                document.forms["Sales"].elements["total4"].value = totalValue4.toFixed(2);
+                document.forms["Sales"].elements["totalAmount"].value = totalValueSold.toFixed(2);
+                document.forms["Sales"].elements["totalEarnings"].value = totalEarnings.toFixed(2);
+                }
+            
+            else {
+                window.alert("INVALID INPUT: Quantity sold must be positive.");
+                }
+        }
+        </script>
+        
+
+    
+</head>
+<body>
+    <div id = "header">
+        <a href = "CNIT133_HW1.html">
+        <figure>
+        <img src = "CNIT133Header2.png" width="900" height="160" alt="Nicole Elise Martin - CNIT 133">
+        </figure>
+        </a>
+        <h1>CNIT 133: HW3 - Functions: PART 2</h1>
+        </div>
+        
+    <div id = "navigation">
+        <ul>
+        <li><a href="CNIT133_HW3_PT1.html">Part  1</a></li>
+        <li><a class = "activeTab" href="CNIT133_HW3_PT2.html">Part  2</a></li>
+        <li><a href="CNIT133_HW3_PT3.html">Part  3</a></li>
+        <li><a href="CNIT133_HW3_PT4.html">Part  4</a></li>
+        </ul>
+        </div>
+ 
+    <div id = "main_content">
+        
+        <div class = "contentbox">
+            
+        <p>Please enter employee name and number of items sold per SKU this week, then press "enter" to view weekly sales totals and earnings. Earnings include &#36;200 base pay plus 9&#37; commission on items sold.</p>
+        
+        <form id = "Sales">
+            <p title = "Please ensure salesperson's name is spelled correctly" class = "masterTooltip"><span style = "color: #000; padding-left: 50px; text-shadow: 0.5px 0.5px 1px #000;"><strong>Employee Name:&nbsp;&nbsp;</strong></span><input name =  "salesperson" type = "text" size = "20" autofocus></p>
+            <table id = "SalesTable">
+            
+            <tr>
+            <th>Item Number</th>
+            <th>Unit Price</th>
+            <th>QTY Sold</th>
+            <th>Total Price</th>
+            </tr>
+            
+            <tr>
+            <td>&#35; 1</td>
+            <td>&#36;239.99</td>
+            <td><input name = "qty1" type = "number" size = "5"></td>
+            <td><input name = "total1" type = "number" size = "5" readonly></td>
+            </tr>
+            
+            <tr>
+            <td>&#35; 2</td>
+            <td>&#36;129.75</td>
+            <td><input name = "qty2" type = "number" size = "5"></td>
+            <td><input name = "total2" type = "number" size = "5" readonly></td>
+            </tr>
+            
+            <tr>
+            <td>&#35; 3</td>
+            <td>&#36;99.95</td>
+            <td><input name = "qty3" type = "number" size = "5"></td>
+            <td><input name = "total3" type = "number" size = "5" readonly></td>
+            </tr>
+                
+            <tr>
+            <td>&#35; 4</td>
+            <td>&#36;350.89</td>
+            <td><input name = "qty4" type = "number" size = "5"></td>
+            <td><input name = "total4" type = "number" size = "5" readonly></td>
+            </tr>
+            
+            <tr class = "table_total">
+            <td colspan ="3">Total Amount Sold</td>
+            <td><input name = "totalAmount" type = "number" size = "5" readonly></td>
+            </tr>
+                
+            <tr class = "table_total">
+            <td colspan ="3">Total Earnings</td>
+            <td><input name = "totalEarnings" type = "number" size = "5" readonly></td>
+            </tr>
+                
+            <tr class = "table_buttons">
+            <td></td>
+            <td></td>
+            <td></td>
+            <td><input name= "submit" type = "button" value = "Enter" onclick="findSalesTotal()" style = "font-size: 14px; background-color: rgba(209, 179, 92, 0.8); color: #fff; text-shadow: 1px 1px 2px #000">
+                <input type="reset" value="Reset" onclick="location.reload();" style = "font-size: 14px; background-color: #0801a5; color: #fff; text-shadow: 1px 1px 2px #000;"></td>
+            </tr>
+                
+            </table>
+        
+        </form>
+        
+        
+        </div> 
+        
+        <footer>
+        <p>&copy;Nicole Elise Martin 2018</p>
+        </footer>
+    </div>
+</body>
+</html>

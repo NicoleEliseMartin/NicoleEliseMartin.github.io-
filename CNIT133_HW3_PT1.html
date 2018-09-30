@@ -1,0 +1,156 @@
+<!DOCTYPE HTML>
+<html lang = en>
+<head>
+   <meta charset="utf-8">
+        <title>NEM - CNIT 133</title>
+        <meta name="description" content="CCSF CNIT 133 HW3: Functions PART 1">
+        <link rel="stylesheet" href="CNIT133_HW3style.css">
+    
+    <!-- Link to JQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    
+    <script> 
+    // JQuery script to hide/show page instructions.
+    $(document).ready(function(){
+    $("#top_panel").click(function(){
+    $("#bottom_panel").slideToggle("slow");
+    });
+        });
+    </script>
+    
+    <!-- JS Function to calculate point average and letter grade -->
+    
+    <script>
+    
+        function findGrade() {
+        var hwAvg, midExam, finalExam, acr, finalAverage, FinalLetterGrade;
+        var mustRetakeClass = "*Due to D or F grade, student must retake this class."
+            
+        // Store form input in variables and convert from strings to integers
+        hwAvg = parseInt(document.forms["StudentGrades"].elements["hwAverage"].value);
+        midExam = parseInt(document.forms["StudentGrades"].elements["midtermScore"].value);
+        finalExam = parseInt(document.forms["StudentGrades"].elements["finalExamScore"].value);
+        acr = parseInt(document.forms["StudentGrades"].elements["acr"].value);
+        
+            if (hwAvg>=0 && hwAvg<=100 && 
+                midExam>=0 && midExam<=100 && 
+                finalExam>=0 && finalExam<=100 &&
+                acr>=0 && acr<=100) {
+        
+            // Calculate course average score  
+            finalAverage = (0.5 * hwAvg) + (0.2 * midExam) + (0.2 * finalExam) + (0.1 * acr);
+        
+            // Return final average and display in form box
+            document.forms["StudentGrades"].elements["finalAverage"].value = Math.round(finalAverage);}
+        
+            else {
+                window.alert("INVALID ENTRY: For Student Grades, please enter integer values between 0 and 100 only.");}
+        
+        // Find Letter Grade - if D or F display "must retake" paragraph
+            if (finalAverage >=90 && finalAverage <=100){
+               finalLetterGrade = "A ";
+            }
+            else if (finalAverage >=80 && finalAverage <=89) {
+                finalLetterGrade = "B ";
+            }
+            else if (finalAverage >=70 && finalAverage <=79) {
+                finalLetterGrade = "C ";
+            }
+            else if (finalAverage >=60 && finalAverage <=69) {
+                finalLetterGrade = "D ";
+                document.getElementById("Must_Retake").innerHTML = mustRetakeClass;
+            }
+            else if (finalAverage <=59) {
+                finalLetterGrade = "F ";
+                document.getElementById("Must_Retake").innerHTML = mustRetakeClass;
+            }
+            
+        // Return letter grade and display in form box
+        document.forms["StudentGrades"].elements["finalGrade"].value = finalLetterGrade;
+        }
+    </script>
+
+</head>
+<body>
+    <div id = "header">
+        <a href = "CNIT133_HW1.html">
+        <figure>
+        <img src = "CNIT133Header2.png" width="900" height="160" alt="Nicole Elise Martin - CNIT 133">
+        </figure>
+        </a>
+        <h1>CNIT 133: HW3 - Functions: PART 1</h1>
+        </div>
+        
+    <div id = "navigation">
+        <ul>
+        <li><a class = "activeTab" href="CNIT133_HW3_PT1.html">Part  1</a></li>
+        <li><a href="CNIT133_HW3_PT2.html">Part  2</a></li>
+        <li><a href="CNIT133_HW3_PT3.html">Part  3</a></li>
+        <li><a href="CNIT133_HW3_PT4.html">Part  4</a></li>
+        </ul>
+        </div>
+ 
+    <div id = "main_content">
+        <div class = "contentbox">
+            
+            <div id="top_panel">
+                <p>
+                Click to view/hide instructions.
+                </p>
+                </div>
+            
+                <div id="bottom_panel">
+                <p>
+                The following webpage contains the heading, Student Grades, and uses a script that inputs a student's homework average, mid-term exam score, final exam score, and ACR (all as integers). It will calculate the student's final average according to the formula: final average = (.5 * hwAvg) + (.2 * midExam) + (.2 * finalExam) + (.1 * ACR).
+                </p>
+                </div>
+
+            <form id="StudentGrades">
+            <table>
+            <tr>
+                <th colspan="2">Student Grades</th>
+                </tr>
+            <tr class="first_column">
+                <td>Homework Average</td>
+                <td><input name="hwAverage" type="number" size ="3" autofocus></td>
+                </tr>
+            <tr class="first_column">
+                <td>Mid-term Exam Score</td>
+                <td><input name="midtermScore" type="number" size="3"></td>
+                </tr>
+            <tr class="first_column">
+                <td>Final Exam Score</td>
+                <td><input name="finalExamScore" type="number" size="3"></td>
+                </tr>
+            <tr class="first_column">
+                <td>ACR</td>
+                <td><input name="acr" type="number" size="3"></td>
+                </tr>
+            <tr>
+                <td></td>
+                <td><input name= "submit" type = "button" value = "Enter" onclick="findGrade();">
+                    <input type="reset" value="Reset" onclick="location.reload();"></td>
+                </tr>
+            </table>
+                
+            <table>
+            <tr><th colspan="2">Course Summary</th></tr>
+            <tr class="first_column">
+                <td>Final Average</td>
+                <td><input name="finalAverage" type="number" size="3" readonly></td>
+                </tr> 
+            <tr class="first_column">
+                <td>Final Letter Grade</td>
+                <td><input name="finalGrade" type="text" size="1" readonly></td>
+                </tr> 
+            </table>
+            </form>
+            <p id="Must_Retake"></p>
+        </div> 
+        
+        <footer>
+        <p>&copy;Nicole Elise Martin 2018</p>
+        </footer>
+    </div>
+</body>
+</html>

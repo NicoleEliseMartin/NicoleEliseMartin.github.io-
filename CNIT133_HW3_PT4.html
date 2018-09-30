@@ -1,0 +1,87 @@
+<!DOCTYPE HTML>
+<html lang = en>
+<head>
+   <meta charset="utf-8">
+        <title>NEM - CNIT 133</title>
+        <meta name="description" content="CCSF CNIT 133 HW3: Functions">
+        <link rel="stylesheet" href="CNIT133_HW3style.css">
+    <script>
+    
+    function generateNumbers(){
+    // generate two random numbers to display on screen
+        var int1, int2, answerBox;
+        int1 = Math.floor(Math.random() * 10);
+        int2 = Math.floor(Math.random() * 10);
+        answerBox = "";
+        document.forms["multiplicationPractice"].elements["int1"].value = int1;
+        document.forms["multiplicationPractice"].elements["int2"].value = int2;
+        document.forms["multiplicationPractice"].elements["answer"].value = answerBox;
+    }
+        
+    function checkAnswer(){
+    // check if answer inputted by user is correct
+        var int1, int2, userAnswer, correctAnswer, windowValue;
+        
+        int1 = parseInt(document.forms["multiplicationPractice"].elements["int1"].value);
+        int2 = parseInt(document.forms["multiplicationPractice"].elements["int2"].value);
+        userAnswer = parseInt(document.forms["multiplicationPractice"].elements["answer"].value);
+        correctAnswer = int1 * int2;
+        
+    // give user option to continue practicing or stop.
+        if (correctAnswer == userAnswer){
+            windowValue = window.confirm("Very good! Would you like to continue?");
+            
+                if (windowValue == true){
+                generateNumbers();
+                    }
+            
+                else if (windowValue == false){
+                window.alert("Goodbye!");
+                    }
+            }
+        
+        else {
+            window.alert("Incorrect answer, please try again.");
+            }
+    }
+    </script>
+</head>
+<body onload = generateNumbers()>
+    <div id = "header">
+        <a href = "CNIT133_HW1.html">
+        <figure>
+        <img src = "CNIT133Header2.png" width="900" height="160" alt="Nicole Elise Martin - CNIT 133">
+        </figure>
+        </a>
+        <h1>CNIT 133: HW3 - PART 4</h1>
+        </div>
+        
+    <div id = "navigation">
+        <ul>
+        <li><a href="CNIT133_HW3_PT1.html">Part  1</a></li>
+        <li><a href="CNIT133_HW3_PT2.html">Part  2</a></li>
+        <li><a href="CNIT133_HW3_PT3.html">Part  3</a></li>
+        <li><a class = "activeTab" href="CNIT133_HW3_PT4.html">Part  4</a></li>
+        </ul>
+        </div>
+ 
+    <div id = "main_content">
+        <div class = "contentbox">
+            <h2>Multiplication Practice</h2>            
+            <form id = "multiplicationPractice">
+            <p>
+            How much is &nbsp;<input name = "int1" type = "text" size ="1" readonly>&nbsp; times 
+            <input name = "int2" type = "text" size = "1" readonly> &nbsp;?<br>
+            Answer:&nbsp;&nbsp;<input name = "answer" type = "number" size = "2"><br>
+            <input name= "Submit" type = "button" value = "Submit" onclick="checkAnswer();">
+            </p>
+            </form>
+            
+        </div> 
+        
+        <footer>
+        <p>&copy;Nicole Elise Martin 2018</p>
+        </footer>
+    </div>
+</body>
+</html>
