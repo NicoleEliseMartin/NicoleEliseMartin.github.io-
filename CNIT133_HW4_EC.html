@@ -1,0 +1,78 @@
+<!DOCTYPE HTML>
+<html lang = en>
+<head>
+   <meta charset="utf-8">
+        <title>NEM - CNIT 133</title>
+        <meta name="description" content="CCSF CNIT 133 HW4 - Extra Credit">
+        <link rel="stylesheet" href="CNIT133_HW4style.css">
+          
+        <script>
+            // Function to print asterisk square
+            function showSquare() {
+            // Collect size of square from form input box
+            var numRows = parseInt(document.forms["asteriskSquare"].elements["squareSize"].value);
+            var numWhiteSpaces = (numRows - 2);
+            var currentRow;
+            var middleRow;
+            var blankSpace = " ";
+            var asterisk = "*";
+            var squareImg;
+            var errorMsg = "";
+            if (numRows >= 2 && numRows <= 10){
+                
+                // Print first row
+                squareImg = "<pre>" + asterisk.repeat(numRows) + "<br>";
+                // Loop to print all middle rows
+                for (currentRow = 1; currentRow <= numWhiteSpaces; currentRow++){
+                    middleRow = asterisk + blankSpace.repeat(numWhiteSpaces) + asterisk + "<br>";
+                    squareImg = squareImg + middleRow;
+                    }
+                // Print last row and display all in document using innerHTML
+                squareImg = squareImg + asterisk.repeat(numRows) + "</pre>";
+                document.getElementById('display_square').innerHTML = squareImg;
+                }
+            
+            else {
+                errorMsg = "**Invalid entry - please try again!**";
+                document.getElementById('error_msg').innerHTML = errorMsg;
+            }
+            
+            }
+        </script>
+</head>
+<body>
+    <div id = "header">
+    <a href = "CNIT133_HW1.html">
+        <img src = "CNIT133Header1.png" width="900" height="160" alt="Nicole Elise Martin - CNIT 133">
+        </a>
+    <header>CNIT 133: HW4 - Extra Credit</header>
+        <div id = "navigation">
+        <ul>
+        <li><a href="CNIT133_HW4_PT1.html">Part 1</a></li>
+        <li><a href="CNIT133_HW4_PT2.html">Part 2</a></li>
+        <li><a href="CNIT133_HW4_EC.html">Extra Credit</a></li>
+        </ul>
+        </div>
+    </div>
+    
+    <div id = "main_content">
+        <div class = "contentbox">
+        <form id = "asteriskSquare">
+            <p>Please enter a number between 2 and 10 to determine the height of your square. <br>
+            <input name = "squareSize" type = "number" size = "2"><br>
+            <input name = "Submit" type = "button" class = "form_button" value = "Enter" onclick="showSquare();">
+            <input name = "Reset" type = "button" class = "form_button" value = "Reset" onclick="location.reload();">
+            </p>
+            <p id = "error_msg"></p>
+        </form>
+            <!-- paragraph to display printed square -->
+            <p id = "display_square">
+            </p>
+        </div>    
+        <footer>
+        <p>&copy;Nicole Elise Martin 2018</p>
+        </footer>
+    </div>
+    
+</body>
+</html>

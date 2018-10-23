@@ -1,0 +1,117 @@
+<!DOCTYPE HTML>
+<html lang = en>
+<head>
+   <meta charset="utf-8">
+        <title>NEM - CNIT 133</title>
+        <meta name="description" content="CCSF CNIT 133 HW4 - Extra Credit">
+        <link rel="stylesheet" href="CNIT133_HW4style.css">
+        
+        <!-- JQuery library link and tooltip function for hover text-->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        
+        <script>
+            $(document).ready(function() {
+                // Tooltip only Text
+                $('.contentbox').hover(function(){
+            // Hover over code
+            var title = $(this).attr('title');
+            $(this).data('tipText', title).removeAttr('title');
+            $('<p class="tooltip"></p>')
+            .text(title)
+            .appendTo('body')
+            .fadeIn('slow');
+                }, function() {
+            // Hover out code
+            $(this).attr('title', $(this).data('tipText'));
+            $('.tooltip').remove();
+            }).mousemove(function(e) {
+            var mousex = e.pageX + 20; //Get X coordinates
+            var mousey = e.pageY + 10; //Get Y coordinates
+            $('.tooltip')
+            .css({ top: mousey, left: mousex })
+                });
+            });
+        </script>        
+    
+        <!-- JQuery library link & function for draggable elements-->
+        <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+          <script>
+            $( function() {
+            $( ".contentbox" ).draggable();
+            } );
+  </script>
+        <script>
+           // function to find and display sum and product of every third integer from 5 to 20
+            function everyThirdInteger() {
+               var productTotal = 1;
+               var sumTotal = 0;
+               var integer;
+                // for loop
+               for (integer=5; integer <=20; integer+=3){
+                       sumTotal = sumTotal + integer;
+                       productTotal = productTotal * integer;
+                   }
+               document.forms["results1"].elements["sum"].value = sumTotal;
+               document.forms["results1"].elements["product"].value = productTotal;
+           }
+            // function to find and display sum and product of every fourth integer from 3 to 31
+            function everyFourthInteger () {
+                var productTotal = 1;
+                var sumTotal = 0;
+                var integer = 3;
+                // while loop
+                while (integer <= 31) {
+                    sumTotal = sumTotal + integer;
+                    productTotal = productTotal * integer;
+                    integer+=4;
+                document.forms["results2"].elements["sum"].value = sumTotal;
+                document.forms["results2"].elements["product"].value = productTotal;
+                }
+            }
+        </script>
+</head>
+<body>
+    <div id = "header">
+        <a href = "CNIT133_HW1.html">
+        <img src = "CNIT133Header1.png" width="900" height="160" alt="Nicole Elise Martin - CNIT 133">
+        </a>
+        <header>CNIT 133: HW4 - Part 2</header>
+        <div id = "navigation">
+        <ul>
+        <li><a href="CNIT133_HW4_PT1.html">Part 1</a></li>
+        <li><a href="CNIT133_HW4_PT2.html">Part 2</a></li>
+        <li><a href="CNIT133_HW4_EC.html">Extra Credit</a></li>
+        </ul>
+        </div>
+    </div>
+    
+    <div id = "main_content">
+        <div class = "contentbox" title = "click to drag content">
+            
+            <form name = "results1">
+            <table class= "results_table">
+                <tr><th colspan="2">Click "Show Results" to find the product and sum of every third integer from 5 to 20</th></tr>
+                <tr><td>Product</td><td><input name = "product" type = "number" size = "5" readonly></td></tr>
+                <tr><td>Sum</td><td><input name = "sum" type = "number" size = "5" readonly></td></tr>
+                <tr><td></td><td><input name = "button" type = "button" class = "form_button" value = "Show Results" onclick = "everyThirdInteger();"></td></tr>
+            </table>
+            </form>
+            
+            <form name = "results2">
+            <table class = "results_table">
+                <tr><th colspan="2">Click "Show Results" to find the product and sum of every fourth integer from 3 to 31</th></tr>
+                <tr><td>Product</td><td><input name = "product" type = "number" size = "5" readonly></td></tr>
+                <tr><td>Sum</td><td><input name = "sum" type = "number" size = "5" readonly></td></tr>
+                <tr><td></td><td><input name = "button" type = "button" class = "form_button" value = "Show Results" onclick = "everyFourthInteger();"></td></tr>
+            </table>
+            </form>
+            
+        </div>    
+        <footer>
+        <p>&copy;Nicole Elise Martin 2018</p>
+        </footer>
+    </div>
+    
+</body>
+</html>

@@ -1,0 +1,223 @@
+/*
+Nicole Martin
+10/9/18
+CNIT 133 HW4
+(based of HW1Stylesheet)
+Stylesheet
+*/
+
+body {
+    background-color: #358463;
+}
+
+#header {
+    border-top: 2px solid #000;
+    border-left: 2px solid #000;
+    border-right: 2px solid #000;
+    border-bottom: 0px solid #000;
+    width: 900px;
+    height: 300px;
+    margin: 0 auto;
+    padding: 0px;
+    background-image: url("escheresque_ste.png");
+}
+
+header {
+    display: block;
+    position: relative;
+    top: -2px;
+    height: 30px;
+    width: 750px;
+    margin: 0 auto;
+    padding: 3px 15px;
+    background-color: rgba(219, 77, 26, 0.9);
+    font-family: "Cambria", sans-serif;
+    font-size: 22px;
+    color: #000;
+    text-shadow: 1px 1px 4px #fff;
+    text-align: center;
+    word-spacing: 0.25 em;
+    border-radius: 0px 0px 40px 40px;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.5);
+}
+
+#main_content {
+    font-family: "Cambria", sans-serif;
+    margin: 0 auto;
+    background-image: url("escheresque_ste.png");
+    background-repeat: repeat;
+    border-top: 0px solid #000;
+    border-bottom: 2px solid #000;
+    border-left: 2px solid #000;
+    border-right: 2px solid #000;
+    height: 900px;
+    width: 900px;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.5);
+    position: relative;
+    top: -50px;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+a:hover {
+    color: #fff;
+}
+
+#navigation ul li {
+    display: block;
+    float: left;
+    background-color: #393c42;
+    border: 1px solid #000;
+    border-radius: 10px;
+    color: #358463;
+    font-family: "Cambria", sans-serif;
+    font-size: 14px;
+    padding: 5px;
+    margin: 5px;
+    width: 80px;
+    text-align: center;
+    box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.25);
+
+}
+
+#navigation {
+    margin: 0px auto;
+    width: 900px;
+    padding: 0px;
+    position: relative;
+    left: 250px;
+}
+
+.tooltip {
+	display:none;
+	position:absolute;
+	border:1px solid #333;
+    border-radius: 5px;
+	background-color:#d1d1d1;
+	padding: 2px 7px;
+	color:#000;
+	font-family: "Cambria", serif;
+    font-size: 12px;
+    opacity: 0.6;
+}
+
+table {
+    margin: auto;
+    width: 500px;
+    color: #d8d8d8;
+    position: relative;
+    top: 20px;
+    background-color: rgba(184, 224, 213, 0.4);
+    border: 0.5px solid #fff;
+    border-collapse: collapse;
+    text-align: left;
+    font-size: 18px;
+    box-shadow: 0px 0px 0px 1px #fff;
+    box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.5);
+}
+
+.results_table th {
+    text-align: center;
+    font-size: 16px;
+    letter-spacing: .03em;
+}
+
+.compound_interest_table {
+    width: 600px;
+}
+.compound_interest_table th {
+    width: 600px;
+    background-color: #51040a; 
+}
+
+th, td {
+    border-top: 0.1px solid #d8d8d8;
+    border-bottom: 0.1px solid #d8d8d8;
+    padding: 3px 15px;
+}
+
+table th {
+    color: #fff;
+    background-color: rgba(53, 132, 99,0.8);
+    text-shadow: 1px 1px 2px #000;
+}
+
+.evenRow {
+    background-color: rgba(184, 224, 213, 0.3);
+}
+
+#index tr:hover {
+    background-color: #db4d1a;
+}
+
+input, select{
+    text-align: left;
+    border: 2px solid #358463;
+    height: 25px;
+    font-size: 13px;
+}
+
+.form_button {
+    display: inline-block;
+    color: #fff;
+    background-color: #303030;
+    font-family: "cambria", sans-serif;
+    border: 1px solid #d1d1d1;
+    border-radius: 10px;
+    margin-right: 5px;
+    padding: 3px 6px;
+    font-size: 13px;
+    height: 25px;
+    text-align: center;
+    box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.5);
+    
+}
+
+.form_button:hover {
+    background-color: rgba(219, 77, 26, 0.9);
+}
+
+.form_button:focus {
+    background-color: rgba(219, 77, 26, 0.9);
+    text-decoration: none;
+    outline: 0px;
+}
+
+.contentbox {
+    display: block;
+    width: 800px;
+    height: 825px;
+    background-color: rgba(184, 224, 213, 0.2);
+    margin: 30px 50px;
+    padding: 0px;
+    font-family: "Cambria", sans-serif;
+    font-size: 20px;
+    color: #000;
+    border-radius: 5px;
+}
+
+p {
+    font-family: "Cambria", sans-serif;
+    color: #d8d8d8;
+    font-size: 18px;
+    line-height: 2;
+    padding: 10px 30px;
+}
+
+#display_square {
+    line-height: 0.62;
+    font-family: "times new roman", serif;
+    text-align: left;
+}
+
+#error_msg {
+     color: #358463;
+    text-shadow: 1px 1px 1px #000;
+}
+
+footer p {
+    text-align: center;
+}

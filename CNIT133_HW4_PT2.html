@@ -1,0 +1,85 @@
+<!DOCTYPE HTML>
+<html lang = en>
+<head>
+   <meta charset="utf-8">
+        <title>NEM - CNIT 133</title>
+        <meta name="description" content="CCSF CNIT 133 HW4 - Extra Credit">
+        <link rel="stylesheet" href="CNIT133_HW4style.css">
+            
+            <script>
+            function findCompoundInterest (){
+                
+                var numberYear, accumulatedAmt;
+                const PRINCIPAL = 1000;
+                const TOTAL_YEARS = 10;
+                var rateInterest = parseFloat(document.getElementById('APR_Options').value);
+                var rateTable;
+                
+                // alert window if no APR selection is made
+                if (isNaN(rateInterest)){
+                    window.alert("ERROR: please make a selection");
+                }
+                    
+                else {
+                // store table headers in variable called rateTable
+                rateTable = "<table class = 'compound_interest_table'><tr><th>Year Number</th><th>Amount Invested</th><th>Interest Rate</th></tr>";
+                // use loop to fill in table row data
+                for (numberYear=1; numberYear<=TOTAL_YEARS; numberYear++){
+                    accumulatedAmt = Math.pow(1+rateInterest, numberYear) * PRINCIPAL;
+                        // create tr class if row number is even (for css styling)
+                        if (numberYear % 2 === 0){
+                        rateTable += "<tr class = 'evenRow'><td>" + numberYear + "</td><td>" + accumulatedAmt.toFixed(2) + "</td><td>" + rateInterest + "</td></tr>";
+                        }
+                        else {rateTable += "<tr><td>" + numberYear + "</td><td>" + accumulatedAmt.toFixed(2) + "</td><td>" + rateInterest + "</td></tr>";
+                        }
+                    }
+                rateTable += "</table>";
+                // display table in paragraph called "table_here"
+                document.getElementById('table_here').innerHTML = rateTable;
+                }
+            }
+            </script>
+    
+</head>
+<body>
+    <div id = "header">
+    <a href = "CNIT133_HW1.html">
+        <img src = "CNIT133Header1.png" width="900" height="160" alt="Nicole Elise Martin - CNIT 133">
+        </a>
+    <header>CNIT 133: HW4 - Part 2</header>
+        <div id = "navigation">
+        <ul>
+        <li><a href="CNIT133_HW4_PT1.html">Part 1</a></li>
+        <li><a href="CNIT133_HW4_PT2.html">Part 2</a></li>
+        <li><a href="CNIT133_HW4_EC.html">Extra Credit</a></li>
+        </ul>
+        </div>
+    </div>
+    
+    <div id = "main_content">
+        <div class = "contentbox">
+            <form>
+            <p>
+                Choose your annual percentage rate from the below list to view compound interest on an &#36;1,000 investment over the next ten years. <br>
+            <select id = "APR_Options">
+            <option value="Select_APR" selected>Select APR</option>
+            <option value="0.05">0.05</option>
+            <option value="0.06">0.06</option>
+            <option value="0.07">0.07</option>
+            <option value="0.08">0.08</option>
+            <option value="0.09">0.09</option>
+            <option value="0.10">0.10</option>
+            </select>
+                <br>
+            <input type="button" class = "form_button" value="submit" onclick = "findCompoundInterest();"></p>
+            </form>
+        <!-- Paragraph to hold generated Compound Interest table -->
+        <p id = "table_here"></p>
+        </div>    
+        <footer>
+        <p>&copy;Nicole Elise Martin 2018</p>
+        </footer>
+    </div>
+    
+</body>
+</html>
