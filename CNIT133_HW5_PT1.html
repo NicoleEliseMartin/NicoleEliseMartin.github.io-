@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang = "en">
+
+<head>
+    <meta charset = "utf-8">
+    <title>Nicole Elise Martin CNIT 133 HW 5 - Arrays - Part 1</title>
+    <meta name = "description" content = "CNIT 133 HW Assignment 5 demonstrates the use of Arrays as well as Form Validation processes">
+    <link rel = "stylesheet" href= "CNIT133HW5Style.css">
+    <link href="https://fonts.googleapis.com/css?family=Dancing+Script" rel="stylesheet">
+
+    <script>
+        
+    // function to validate form to ensure all fields completed
+    function validate() {
+        
+        var radioButtonChecked = false;
+        var checkBoxChecked = false;
+        var radioNum, boxNum;
+        var errorMsg1 = "**Please enter value";
+        var errorMsg2 = "**Please make a selection";
+        
+        // check if text box is empty
+        
+        var textBox = document.forms["stateTriviaQuiz"].elements["favoriteState"].value;
+        if (textBox == "" || textBox == null) {
+            document.getElementById("error1").innerHTML = errorMsg1;
+        }
+        
+        // check if radio button has been selected
+        
+        for (radioNum = 0; radioNum < 3; ++radioNum){
+            if (document.stateTriviaQuiz.flower[radioNum].checked){
+                radioButtonChecked = true;
+                break;
+                }
+            }
+        if (radioButtonChecked == false){
+            document.getElementById("error2").innerHTML = errorMsg2;
+        }
+        
+        // check if at least one checkbox checked
+        
+        for (boxNum = 0; boxNum < 5; ++boxNum) {
+            if (document.stateTriviaQuiz.amenities[boxNum].checked){
+                checkBoxChecked = true;
+                break;
+                }
+            }
+        if (checkBoxChecked == false) {
+            document.getElementById("error3").innerHTML = errorMsg2;
+        }
+        
+    }
+        
+    // function to clear error messages when Reset Button pressed
+        
+    function clearMessages() {
+        document.getElementById("error1").innerHTML = " ";
+        document.getElementById("error2").innerHTML = " ";
+        document.getElementById("error3").innerHTML = " ";
+    }
+    </script>
+    
+</head>
+
+<body>
+    <div class = "center_content">
+        <div class = "header">
+            <h1><a href = "CNIT133_HW1.html">Nicole Elise Martin</a></h1>
+        <h2>CNIT 133 HW 5: Arrays</h2>
+        <ul id = "navigation">
+            <li><a href = "CNIT133_HW5_PT1.html">Part 1</a></li>
+            <li><a href = "CNIT133_HW5_PT2.html">Part 2</a></li>
+            <li><a href = "CNIT133_HW5_PT3.html">Part 3</a></li>
+            
+        </ul>
+        </div>
+    
+        <h3>State Trivia Quiz </h3> 
+        
+        <form method="post" name="stateTriviaQuiz" action="mailto:nmarti84@mail.ccsf.edu" enctype="text/plain">
+            
+        <p>1. What is your favorite US state?<br>
+            <input type="text" size="20" maxlength="30" name="favoriteState"></p>
+        <p id="error1"></p>
+            
+        <p>2. What is the state flower of California?<br>
+            <input type="radio" name="flower" value="Poppy">Poppy<br>
+            <input type="radio" name="flower" value="Rose">Rose<br>
+            <input type="radio" name="flower" value="Daisy">Daisy<br>
+            </p>
+        <p id="error2"></p>
+            
+        <p>3. What are the most important factors when choosing what city and county to live in?<br>
+            <input type="checkbox" name="amenities" value="scenery">Scenery<br>
+            <input type="checkbox" name="amenities" value="schools">School Availability<br>
+            <input type="checkbox" name="amenities" value="jobs">Job Market<br>
+            <input type="checkbox" name="amenities" value="family">Proximity to Family<br>
+            <input type="checkbox" name="amenities" value="dogs">Dog Parks<br>
+            </p>
+        <p id="error3"></p>
+            
+        <p> <input type="submit" value="Submit" class="form_button" onclick="validate();">
+            <input type="reset" value="Reset" class="form_button" onclick="clearMessages();"></p>
+            
+        </form>
+        
+        <div id = "footer">
+        <p>&copy; Nicole Elise Martin<br>
+        Banner image Credit: <a href="https://www.freepik.com/free-photo/magnifying-glass-and-compass-on-maps_2146794.htm">by Freepik.com</a>
+        </p>
+    </div>
+    
+    </div>
+    
+</body>
+
+</html>

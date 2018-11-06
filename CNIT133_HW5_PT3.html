@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang = "en">
+
+<head>
+    <meta charset = "utf-8">
+    <title>Nicole Elise Martin CNIT 133 HW 5 - Arrays</title>
+    <meta name = "description" content = "CNIT 133 HW Assignment 5 demonstrates the use of Arrays as well as Form Validation processes">
+    <link rel = "stylesheet" href= "CNIT133HW5Style.css">
+    <link href="https://fonts.googleapis.com/css?family=Dancing+Script" rel="stylesheet">
+    
+    <script>
+        // function to store and display state information
+        function findStateInfo(){
+            // array to store all state data
+            var errorMsg = "**State info not found - please try again";
+            var found = false;
+            var stateArray = 
+                [["AL", "ALABAMA", "Montgomery", "4,779,736"],
+                 ["AK", "ALASKA", "Juneau", "710,231"],
+                 ["AZ", "ARIZONA", "Phoenix", "6,392,017"],
+                 ["AR", "ARKANSAS", "Little Rock", "2,915,918"],
+                 ["CA", "CALIFORNIA", "Sacramento", "37,253,956"],
+                 ["CO",	"COLORADO",	"Denver", "5,029,196"],
+                 ["CT", "CONNECTICUT", "Hartford", "3,590,886"]];
+            
+            // pull user input from form and convert to upper case
+            var searchTerm = document.forms["stateinfo"].elements["statename"].value;
+            searchTerm = searchTerm.toUpperCase();
+            
+            // search stateArray for value that matches user input then send corresponding values back to form
+            for(var rowNumber=0; rowNumber<stateArray.length; rowNumber++){
+                if (stateArray[rowNumber][0] == searchTerm || stateArray[rowNumber][1] == searchTerm){
+                    document.forms["stateinfo"].elements["statename"].value = stateArray[rowNumber][1];
+                    document.forms["stateinfo"].elements["abbreviation"].value = stateArray[rowNumber][0];
+                    document.forms["stateinfo"].elements["capitol"].value = stateArray[rowNumber][2];
+                    document.forms["stateinfo"].elements["population"].value = stateArray[rowNumber][3];
+                    found = true;
+                }
+            }
+            // if user input does not match array, show error message
+            if (found == false){
+                document.getElementById("errorMsg").innerHTML = errorMsg;
+            }
+        }
+        
+        // function to clear error message when reset button is pressed
+        function clearMessage(){
+            document.getElementById("errorMsg").innerHTML = " ";
+        }
+    </script>
+
+</head>
+
+<body>
+    <div class = "center_content">
+        <div class = "header">
+            <h1><a href = "CNIT133_HW1.html">Nicole Elise Martin</a></h1>
+        <h2>CNIT 133 HW 5: Arrays - Part 3</h2>
+        <ul id = "navigation">
+            <li><a href="CNIT133_HW5_PT1.html">Part 1</a></li>
+            <li><a href="CNIT133_HW5_PT2.html">Part 2</a></li>
+            <li><a href="CNIT133_HW5_PT3.html">Part 3</a></li>
+        </ul>
+        </div> 
+        
+    <form name = "stateinfo">
+        <p>Please enter state name to view US population data. Data is currently only available for states beginning with letters "A" through "C". </p>
+        <p>
+        State Name: <br>
+        <input type="text" size="20" id="statename"><br>
+        State Abbreviation: <br>
+        <input type="text" size="20" id="abbreviation" class="formBox_readonly" readonly><br>
+        Capitol City: <br>
+        <input type="text" size="20" id="capitol" class="formBox_readonly" readonly><br>
+        Population:<br>
+        <input type="text" size="20" id="population" class="formBox_readonly" readonly><br>
+        <input type="button" value="View State Info" class="form_button" onclick="findStateInfo();">
+        <input type="reset" value="Clear Form" class="form_button" onclick="clearMessage();">
+        </p>
+        <p id="errorMsg"></p>
+    </form>
+
+    <div id = "footer">
+    <p>&copy; Nicole Elise Martin<br>
+        Banner image <a href="https://www.freepik.com/free-photo/magnifying-glass-and-compass-on-maps_2146794.htm">by Freepik.com</a>
+    </p>
+    </div>
+</div>
+    
+    
+</body>
+
+</html>
