@@ -1,0 +1,82 @@
+<!DOCTYPE HTML>
+<html lang = en>
+<head>
+   <meta charset="utf-8">
+        <title>NEM - CNIT 133 - HW6</title>
+        <meta name="description" content="CCSF CNIT 133 HW6: Objects Part 2">
+        <link rel = "stylesheet" href= "CNIT133HW5Style.css">
+        <link href="https://fonts.googleapis.com/css?family=Dancing+Script" rel="stylesheet">
+    <script>
+        function findCharacter(){
+            var textBlock, searchChar, errorWindow;
+            var totalInstances = 0; //counter
+            
+            // collect text block from user input and convert to lower case
+            textBlock = document.forms["searchCharacterForm"].elements["inputtedText"].value;
+            textBlock = textBlock.toLowerCase();
+            
+            // collect search character from user input and convert to lower case
+            searchChar = document.forms["searchCharacterForm"].elements["searchKey"].value;
+            searchChar = searchChar.toLowerCase();
+            
+            // tally number of instances
+            for (var i=0; i < textBlock.length; i++){
+                if (textBlock.charAt(i) == searchChar){
+                    totalInstances++;        
+                    }
+                }         
+            // return number of instances
+                document.forms["searchCharacterForm"].elements["occurences"].value = totalInstances;
+            
+            // pop up window to display error if no instances
+            if (totalInstances == 0){
+                errorWindow = window.open("", "newWindow", "top=0,left=0,width=300,height=100");
+                errorWindow.focus();
+                errorWindow.document.write("No instances of " + searchChar + " found within text. Please try again.");
+                errorWindow.document.close();
+                // clear form fields
+                document.forms["searchCharacterForm"].elements["searchKey"].value = " ";
+                document.forms["searchCharacterForm"].elements["inputtedText"].value = " ";
+                document.forms["searchCharacterForm"].elements["occurences"].value = " ";
+            }
+            
+        }
+    </script>
+    
+</head>
+<body>
+    <div class = "center_content">
+        <div class = "header">
+            <h1><a href = "CNIT133_HW1.html">Nicole Elise Martin</a></h1>
+        <h2>CNIT 133 HW 6: Objects - PART 2</h2>
+        <ul id = "navigation">
+            <li><a href = "CNIT133_HW6_PT1.html">Part 1</a></li>
+            <li><a href = "CNIT133_HW6_PT2.html">Part 2</a></li>
+            <li><a href = "CNIT133_HW6_PT3.html">Part 3</a></li>
+            
+        </ul>
+        </div>
+    
+    <form name = "searchCharacterForm">
+        <p>Please enter a body of text and a character to see number of occurences of that character within your text.</p>
+        <table class="form_table">
+            <tr><td>Your Text:</td><td><textarea name="inputtedText" cols="40" rows="3"></textarea></td></tr>
+            <tr><td>Search Character:</td><td><input name="searchKey" type="text" size="1"></td></tr>
+            <tr><td>Number Occurences:</td><td><input name="occurences" type="text" size="3" readonly></td></tr>
+            <tr>
+            <td></td>
+            <td><input type="button" class="form_button" value="Submit" onclick="findCharacter();">
+                <input type="reset" value="Reset" class="form_button"></td>
+            </tr>
+        </table>
+    </form>   
+     
+    <div id = "footer">
+    <p>&copy; Nicole Elise Martin<br>
+        Banner image Credit: <a href="https://www.freepik.com/free-photo/magnifying-glass-and-compass-on-maps_2146794.htm">by Freepik.com</a>
+    </p>
+    </div>
+    
+    </div>
+</body>
+</html>

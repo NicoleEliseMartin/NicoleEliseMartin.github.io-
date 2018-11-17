@@ -1,0 +1,97 @@
+<!DOCTYPE HTML>
+<html lang = en>
+<head>
+   <meta charset="utf-8">
+        <title>NEM - CNIT 133 - HW6</title>
+        <meta name="description" content="CCSF CNIT 133 HW6: Objects PART 1">
+        <link rel = "stylesheet" href= "CNIT133HW5Style.css">
+        <link href="https://fonts.googleapis.com/css?family=Dancing+Script" rel="stylesheet">
+    <script>
+    function roundNumber(){
+        var number = document.forms["findRoundNumber"].elements["enteredNumber"].value;
+        var decimalPlaces, squareRoot, squareRootInt;
+        var decimalFound = 0;
+        const decimal = ".";
+        
+        // find number of decimal places entered and reject if less than four
+        decimalFound = number.indexOf(decimal);
+        decimalPlaces = (number+"").split(".");
+        
+        if (decimalFound == -1) {
+            window.alert("INVALID ENTRY: Please enter a floating point number with at least four decimal places.");
+        }
+        
+        else if (decimalPlaces[1].length < 4){
+            window.alert("INVALID ENTRY: Only " + decimalPlaces[1].length + " decimal places were included, but at least four are required for program to work");
+        }
+        else {
+            // convert inputted number string in to float
+            number = parseFloat(number);
+            // round number to nearest integer
+            document.forms["findRoundNumber"].elements["integer"].value = Math.round(number);
+            // find square-root and round down to nearest integer
+            squareRoot = Math.sqrt(number);
+            squareRootInt = Math.floor(squareRoot);
+            document.forms["findRoundNumber"].elements["squareRoot"].value = squareRootInt;
+            // round to nearest tenths
+            document.forms["findRoundNumber"].elements["Tenths"].value = number.toFixed(1);
+            // round to nearest hundredths
+            document.forms["findRoundNumber"].elements["Hundredths"].value = number.toFixed(2);
+            // round to nearest thousandths
+            document.forms["findRoundNumber"].elements["Thousandths"].value = number.toFixed(3);    
+        }
+    }
+    </script>
+</head>
+<body>
+    <div class = "center_content">
+        <div class = "header">
+            <h1><a href = "CNIT133_HW1.html">Nicole Elise Martin</a></h1>
+        <h2>CNIT 133 HW 6: Objects - PART 1</h2>
+        <ul id = "navigation">
+            <li><a href = "CNIT133_HW6_PT1.html">Part 1</a></li>
+            <li><a href = "CNIT133_HW6_PT2.html">Part 2</a></li>
+            <li><a href = "CNIT133_HW6_PT3.html">Part 3</a></li>
+            
+        </ul>
+        </div>
+    
+    <form name="findRoundNumber">
+    <p>Please enter a floating point number with at least four decimal places:</p>
+    <table class = "form_table" id = "roundTable">
+        <tr>
+            <td>Number</td> 
+            <td><input name="enteredNumber" type="number" length="20"></td></tr>
+        <tr>
+            <td>Rounded to Integer</td> 
+            <td><input name="integer" type="number" length="20" readonly></td></tr>
+        <tr>
+            <td>Square Root as Integer</td> 
+            <td><input name="squareRoot" type="number" length="20" readonly></td></tr>
+        <tr>
+            <td>Rounded to 10ths position</td> 
+            <td><input name="Tenths" type="number" length="20" readonly></td></tr>
+        <tr>
+            <td>Rounded to 100ths position</td> 
+            <td><input name="Hundredths" type="number" length="20" readonly></td></tr>
+        <tr>
+            <td>Rounded to 1000ths position</td> 
+            <td><input name="Thousandths" type="number" length="20" readonly></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input type="button" class="form_button" value="Calculate" onclick="roundNumber();">
+                <input type="reset" value="Reset" class="form_button"></td>
+        </tr>
+    </table>
+    </form>
+        
+    <div id = "footer">
+    <p>&copy; Nicole Elise Martin<br>
+        Banner image Credit: <a href="https://www.freepik.com/free-photo/magnifying-glass-and-compass-on-maps_2146794.htm">by Freepik.com</a>
+    </p>
+    </div>
+    
+    </div>
+</body>
+</html>
