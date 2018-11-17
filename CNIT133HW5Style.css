@@ -16,7 +16,7 @@ body {
     position: relative;
     border-radius: 40px;
     background-color: rgba(76, 33, 99, 0.85);
-    box-shadow: 0px 0px 40px rgba(255, 220, 145, 0.8);
+    box-shadow: 0px 0px 40px rgba(201, 221, 255, 0.85);
 }
 
 .header {
@@ -96,6 +96,20 @@ h3 {
     margin: 0px;
 }
 
+.form_table {
+    color: #fff;
+    background-color: rgba(102, 102, 102, 0.8);
+    border: 2px solid #1c1c1c;
+    border-collapse: collapse;
+    font-family: Cambria, sans-serif;
+    margin:5px 60px;
+}
+
+.form_table th, .form_table td {
+    padding: 5px;
+    border: 1px solid #1c1c1c;
+}
+
 p {
     padding: 30px 60px;
     color: rgba(252, 239, 212, 0.85);
@@ -106,6 +120,12 @@ p {
 
 .formBox_readonly {
     background-color: rgb(193, 193, 193);
+}
+
+input[readonly]
+{
+    background-color: rgba(193, 193, 193, 0.5);
+    border: 1px solid rgba(193, 193, 193, 0.5);
 }
 
 .form_button {
