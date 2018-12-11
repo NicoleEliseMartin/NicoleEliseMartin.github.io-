@@ -1,0 +1,135 @@
+<!DOCTYPE HTML>
+<html lang = en>
+<head>
+   <meta charset="utf-8">
+        <title>NEM - CNIT 133</title>
+        <meta name="description" content="CCSF CNIT 133 HW7 - Object Model and Misc. JQuery">
+        <link rel="stylesheet" href="CNIT133_HW7style.css">
+
+<script>
+    // function to collect selected color from radio array and change table BG to selected color
+    function changeBG(style) {
+        var table = document.getElementById("CSSFormTable");
+        if(style == 0) {
+        table.className = "green";
+            }
+        else if(style == 1) {
+        table.className = "blue";
+            }
+        else if(style == 2) {
+        table.className = "purple";
+            }
+        else if(style == 3) {
+        table.className = "red";
+            }
+    }
+    // function to collect selected font style from radio array and change table fonts to selected style
+    function changeFontStyle(fontStyle) {
+        var table = document.getElementById("CSSFormTable");
+        if(fontStyle == 0){
+            table.className = "italic";
+            }
+        else if(fontStyle == 1){
+            table.className = "normalFontStyle";
+            }
+        
+        else if(fontStyle == 2){
+            table.className = "bold";
+            }  
+    }
+    // function to collect selected font size from select menu and change table font size to selection
+    function changeFontSize(){      
+        var table = document.getElementById("CSSFormTable");    
+        var selectedFontSize = document.getElementById("fontSizeMenu").value;
+            
+        if (selectedFontSize == "small"){
+            table.className = "smallFont";
+            }
+        else if (selectedFontSize == "medium"){
+            table.className = "mediumFont";
+            }
+        else if (selectedFontSize == "large"){
+        table.className = "largeFont";
+            }    
+    // function to change font family to cursive when form button clicked
+    }
+    function changeFontFamily(){
+        var table = document.getElementById("CSSFormTable");
+        table.className = "cursiveFont";
+    }
+    // function to change table style back to normal when button clicked
+    function revertStyle(){
+        var originalTable = document.getElementById("CSSFormTable");
+        originalTable.className = "normal";
+    }
+</script>
+    
+</head>
+<body>
+    <div id = "main_content">
+    <div id = "header">
+    <a href = "CNIT133_HW1.html"><img src = "CNIT133Header2.png" width="900" height="160" alt="Nicole Elise Martin - CNIT 133 HW7"></a>
+    <h1>CNIT 133: HW7 - Object Model &amp; Misc. JQuery<br> Part 1</h1>
+    </div>
+    
+        <div class = "contentbox">
+        <a href="CNIT133_HW7.html"><h2>HW7 Main Index</h2></a>
+            
+        <form name="CSSForm">
+        <table id = "CSSFormTable" class="normal">
+        <tr>
+            <td>Change BG Color</td>
+            <td>Change Font Style</td>
+            <td>Select Font Size</td>
+            <td>Update Font Family</td>
+        </tr>
+    <!--Radio menu to call changeBG function and pass array position of selection as argument when radio button is clicked-->
+        <tr>
+            <td>
+            <input type="radio" name="style" onclick="changeBG(0)">Green<br>
+            <input type="radio" name="style" onclick="changeBG(1)">Blue<br>
+            <input type="radio" name="style" onclick="changeBG(2)">Purple<br>
+            <input type="radio" name="style" onclick="changeBG(3)">Red<br>
+            </td>
+            
+    <!--Radio menu to call changeFontStyle function and pass array positon of selection as argument when radio button is clicked --> 
+            <td>
+            <input type="radio" name="fontStyle" onclick="changeFontStyle(0)">Italic<br>
+            <input type="radio" name="fontStyle" onclick="changeFontStyle(1)">Normal<br>
+            <input type="radio" name="fontStyle" onclick="changeFontStyle(2)">Bold<br>
+            </td>
+            
+    <!--Drop down select menu to call changeFontSize function when selection changed-->
+            <td>
+            <select name="fontSizeMenu" id="fontSizeMenu" onchange="changeFontSize();">
+                <option  value="#">Select Font Size</option> 
+                <option value="small">Small</option>                         
+                <option value="medium">Medium</option>                        
+                <option value="large">Large</option>       
+                </select>
+            </td>
+            
+   <!--Button to change table font-family when clicked-->         
+            <td>
+            <input type="button" class = "table_button" value="Switch to Cursive"  onclick="changeFontFamily();">
+            </td>
+        </tr>
+            
+    <!--Button to change table style back to original/"normal" class/styling when clicked-->
+        <tr>
+            <td colspan="4">
+                <input type="button" class="table_button" value="Revert Style"  onclick="revertStyle();"><input type="reset" value="Reset" class="table_button">
+            </td>
+        </tr>
+        
+        </table>    
+        </form>
+            
+        </div>  
+        
+        <div id="footer">
+            <p>&copy; Nicole Elise Martin 2018</p>
+        </div>
+    </div>
+</body>
+</html>

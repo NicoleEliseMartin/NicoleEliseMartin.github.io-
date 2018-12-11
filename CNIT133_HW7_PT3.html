@@ -1,0 +1,61 @@
+<!DOCTYPE HTML>
+<html lang = en>
+<head>
+   <meta charset="utf-8">
+        <title>NEM - CNIT 133</title>
+        <meta name="description" content="CCSF CNIT 133 HW7 - Object Model and Misc. JQuery">
+        <link rel="stylesheet" href="CNIT133_HW7style.css">
+
+<!-- 1. Add latest jQuery and fancybox files -->
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.2/dist/jquery.fancybox.min.css" />
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.2/dist/jquery.fancybox.min.js"></script>
+
+<script>
+// apply fancybox gallery to all images with class "lightbox"
+(function($){$(document).ready(function() {
+	$('.lightbox').fancybox();
+    
+    });  
+           })(jQuery)
+</script>
+    
+</head>
+<body>
+    
+    <div id = "main_content">
+    <div id = "header">
+    <a href = "CNIT133_HW1.html"><img src = "CNIT133Header2.png" width="900" height="160" alt="Nicole Elise Martin - CNIT 133 HW7"></a>
+    <h1>CNIT 133: HW7 - Object Model &amp; Misc. JQuery</h1>
+    </div>
+    
+        <div class = "contentbox">
+        <a href="CNIT133_HW7.html"><h2>HW7 Main Index</h2></a>
+        <h3>Nicole Elise Martin - Painting Gallery (displayed through jQuery Fancybox)</h3>
+            
+            <div id = "paintingGallery">
+                <a href="NEMartin_Seascape.png" class="lightbox" data-fancybox="group" data-caption="Nicole Elise Martin - Acrylic Seascape">
+	               <img src="NEMartin_Seascape.png" alt="Nicole Elise Martin Seascape Painting" height="300" width="300"/>
+                </a>
+
+                <a href="NEMartin_Mountains.png" class="lightbox" data-fancybox="group" data-caption="Nicole Elise Martin - Acrylic Mountains Painting">
+	               <img src="NEMartin_Mountains.png" alt="Nicole Elise Martin Acrylic Mountains Painting" height="300" width = "300"/>
+                </a>
+                
+                <a href="NEMartin_BlueStillLife.png" class="lightbox" data-fancybox="group" data-caption="Nicole Elise Martin - Blue Still Life - Oil Painting">
+	               <img src="NEMartin_BlueStillLife.png" alt="Nicole Elise Martin Oil Painting" height="303" width = "241"/>
+                </a>
+            
+            
+            </div>
+            
+            
+        </div>  
+        <div id="footer">
+            <p>&copy; Nicole Elise Martin 2018</p>
+        </div>
+    </div>
+</body>
+</html>
